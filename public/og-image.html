@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Ponte Futuristico</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Roboto:wght@300;400;700&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #0a0a1f 0%, #1a1a3f 100%);
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .background-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 217, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 217, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 20s linear infinite;
+        }
+        
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        
+        .content {
+            text-align: center;
+            z-index: 2;
+            padding: 60px;
+            max-width: 900px;
+        }
+        
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(90deg, #00d9ff, #9d4edd);
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #b8b8d1;
+            font-weight: 300;
+        }
+        
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .feature {
+            font-size: 22px;
+            color: #00d9ff;
+            font-weight: 500;
+        }
+        
+        .logo {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .bridge-icon {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(90deg, transparent, rgba(0, 217, 255, 0.3), transparent);
+            clip-path: polygon(0% 100%, 100% 100%, 90% 0%, 10% 0%);
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern"></div>
+    <div class="content">
+        <h1>PONTE FUTURISTICO</h1>
+        <div class="subtitle">Ingegneria Avanzata · Design Innovativo · Tecnologia Sostenibile</div>
+        <div class="features">
+            <div class="feature">⚡ Energia Pulita</div>
+            <div class="feature">🏗️ Design Avanzato</div>
+            <div class="feature">🌿 Sostenibilità</div>
+        </div>
+    </div>
+    <div class="bridge-icon"></div>
+    <div class="logo">INNOVATION BRIDGE PROJECT</div>
+</body>
+</html>

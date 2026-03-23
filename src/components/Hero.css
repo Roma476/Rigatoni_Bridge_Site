@@ -1,0 +1,463 @@
+/* Hero.css - Design Compatto con effetti più "maschili" */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.grid-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 217, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 217, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 15s linear infinite;
+}
+
+.floating-shapes {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.3;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--secondary-color);
+  top: 10%;
+  left: 5%;
+  animation: float 20s infinite ease-in-out;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--accent-color);
+  bottom: 20%;
+  right: 10%;
+  animation: float 15s infinite ease-in-out reverse;
+}
+
+.shape-3 {
+  width: 150px;
+  height: 150px;
+  background: #ff00aa;
+  top: 50%;
+  left: 80%;
+  animation: float 25s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  50% {
+    transform: translateY(10px) translateX(-10px);
+  }
+  75% {
+    transform: translateY(-10px) translateX(-5px);
+  }
+}
+
+.hero-content {
+  text-align: center;
+  max-width: 1200px;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.hero-title-container {
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.title-main {
+  font-size: 7rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  background: linear-gradient(90deg, var(--secondary-color), #ffffff, var(--accent-color));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+  animation: titleGlow 3s infinite alternate;
+}
+
+@keyframes titleGlow {
+  0% {
+    text-shadow: 0 0 30px rgba(0, 217, 255, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 50px rgba(0, 217, 255, 0.8), 0 0 70px rgba(157, 78, 221, 0.4);
+  }
+}
+
+.title-sub {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  font-weight: 300;
+  padding: 0.5rem 0;
+}
+
+/* Team Names - Design più "hardcore" */
+.team-names {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0 2rem;
+  flex-wrap: wrap;
+}
+
+.name-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 1rem 1.8rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  border: 1px solid rgba(0, 217, 255, 0.3);
+  transition: all 0.3s ease;
+  min-width: 160px;
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.name-item:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--secondary-color);
+  box-shadow: 0 8px 25px rgba(0, 217, 255, 0.4);
+  background: rgba(0, 217, 255, 0.1);
+}
+
+.name-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, 
+    transparent 0%, 
+    rgba(0, 217, 255, 0.1) 50%, 
+    transparent 100%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.name-item:hover::before {
+  transform: translateX(100%);
+}
+
+.name-first {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-color);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.name-last {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.5);
+  position: relative;
+  padding: 0.2rem 0;
+}
+
+.name-last::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.name-item:hover .name-last::after {
+  width: 80%;
+}
+
+/* Project Info Cards - Compatte */
+.project-info {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.info-card {
+  background: rgba(0, 217, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 90px;
+}
+
+.info-card:hover {
+  background: rgba(0, 217, 255, 0.1);
+  transform: translateY(-3px);
+  border-color: rgba(0, 217, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 217, 255, 0.1);
+}
+
+.info-icon {
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 217, 255, 0.1);
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.info-content {
+  flex: 1;
+}
+
+.info-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.info-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 0.2rem;
+  line-height: 1.2;
+}
+
+.info-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.2;
+}
+
+.scroll-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.5rem;
+  opacity: 0.8;
+  animation: fadeInOut 2s infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.mouse {
+  width: 28px;
+  height: 45px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 18px;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.wheel {
+  width: 3px;
+  height: 8px;
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(15px);
+    opacity: 0;
+  }
+}
+
+.scroll-indicator span {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .title-main {
+    font-size: 4.2rem;
+  }
+  
+  .project-info {
+    gap: 1.2rem;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 992px) {
+  .title-main {
+    font-size: 3.5rem;
+    letter-spacing: 4px;
+  }
+  
+  .title-sub {
+    font-size: 1.1rem;
+  }
+  
+  .team-names {
+    gap: 1rem;
+  }
+  
+  .name-item {
+    min-width: 140px;
+    padding: 0.8rem 1.2rem;
+  }
+  
+  .name-first {
+    font-size: 1.1rem;
+  }
+  
+  .name-last {
+    font-size: 1.2rem;
+  }
+  
+  .project-info {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    gap: 1rem;
+  }
+  
+  .info-card {
+    padding: 1rem;
+    min-height: 80px;
+  }
+  
+  .info-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 90px;
+  }
+  
+  .title-main {
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+  }
+  
+  .title-sub {
+    font-size: 1rem;
+  }
+  
+  .team-names {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  
+  .name-item {
+    width: 100%;
+    max-width: 250px;
+  }
+  
+  .scroll-indicator {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title-main {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+  
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  .info-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+    min-height: auto;
+    padding: 1.2rem;
+  }
+  
+  .info-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+  
+  .info-value {
+    font-size: 1rem;
+  }
+}

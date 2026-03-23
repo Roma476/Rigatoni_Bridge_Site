@@ -1,0 +1,217 @@
+/* Objective.css - Versione semplificata */
+
+.spec-item,
+.spec-label,
+.spec-value,
+.objective-description,
+.card-body * {
+  font-family: inherit !important;
+  font-weight: inherit !important;
+  letter-spacing: normal !important;
+}
+
+
+.objective {
+  background: linear-gradient(180deg, rgba(10, 10, 31, 0.9) 0%, rgba(10, 10, 31, 0.95) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.objective::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--secondary-color), transparent);
+}
+
+.objective-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem; /* Ridotto da 4rem a 2rem */
+}
+
+.objective-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.objective-card {
+  background: var(--card-bg);
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.objective-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 217, 255, 0.15);
+  border-color: rgba(0, 217, 255, 0.4);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.card-title {
+  font-size: 1.8rem;
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.objective-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.technical-specs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.spec-item {
+  padding: 1rem;
+  background: rgba(0, 217, 255, 0.05);
+  border-radius: 10px;
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.spec-item:hover {
+  background: rgba(0, 217, 255, 0.1);
+  border-color: rgba(0, 217, 255, 0.3);
+}
+
+.spec-label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.spec-value {
+  font-size: 1.1rem;
+  color: var(--secondary-color);
+}
+
+.objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.objective-item {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 1.8rem;
+  border: 1px solid rgba(0, 217, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.objective-item:hover {
+  transform: translateY(-5px);
+  border-color: var(--secondary-color);
+}
+
+.objective-item:hover .objective-item-glow {
+  opacity: 1;
+}
+
+.objective-item-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.objective-item-title {
+  font-size: 1.2rem;
+  color: var(--text-color);
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.objective-item-desc {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.objective-item-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Rimossi completamente:
+   .parabola-visualization
+   .visualization-title
+   .parabola-container
+   .parabola-curve
+   .parabola-line
+   @keyframes drawParabola
+   .control-point
+   .point-a, .point-b, .point-c
+   .parabola-info
+   .info-item
+   .info-label
+   .info-value
+*/
+
+@media (max-width: 992px) {
+  .objective-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .objectives-grid {
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .technical-specs {
+    grid-template-columns: 1fr;
+  }
+  
+  .objectives-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .objective-card {
+    padding: 1.5rem;
+  }
+}

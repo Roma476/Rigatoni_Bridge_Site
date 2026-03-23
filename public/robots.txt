@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Sitemap: https://rigatoni-bridge.netlify.app/sitemap.xml
+
+# Developed by Friciu Robert Gabriel
